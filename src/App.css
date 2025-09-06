@@ -1,38 +1,114 @@
-.App {
+:root {
+  --bg: #0e0f12;
+  --fg: #e6e6e6;
+  --muted: #a3a3a3;
+  --primary: #4f46e5;
+  --primary-600: #4338ca;
+  --card: #16181d;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, Apple Color Emoji, Segoe UI Emoji;
+}
+
+.page {
+  height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  padding: 24px;
+  gap: 16px;
+}
+
+.centered {
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 16px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.primary,
+.secondary {
+  appearance: none;
+  border: none;
+  padding: 14px 18px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.primary {
+  background: var(--primary);
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.primary:hover {
+  background: var(--primary-600);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.secondary {
+  background: var(--card);
+  color: var(--fg);
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.link {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.link:hover {
+  color: var(--fg);
+}
+
+.spacer {
+  flex: 1;
+}
+
+.viewer {
+  position: relative;
+  height: 100%;
+  min-height: 0;
+  background: var(--card);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+@media (max-width: 640px) {
+  .topbar {
+    gap: 8px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .secondary {
+    width: 100%;
   }
+}
+
+.note {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  color: var(--muted);
+  background: rgba(0, 0, 0, 0.4);
+  padding: 8px 10px;
+  border-radius: 8px;
 }
